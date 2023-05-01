@@ -7,7 +7,9 @@ function flatten(arr) {
   for(let i of arr ){
     console.log(i);
     if(Array.isArray(i)) {
-      output += flatten(i);
+      // ! 스프레드 연산자로 한번에 넣어야 하는 이유는 잘 모르겠습니다.
+      output.push(...flatten(i));
+      // output += flatten(i);
       console.log('true')
     } else {
       output.push(i);
