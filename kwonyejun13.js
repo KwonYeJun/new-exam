@@ -77,50 +77,107 @@
 // * Q.1
 
 
+// function exampleOne(numberValue) {
+//   function integerCheck(data) {
+//     if (Number.isInteger(data) === true) {
+//       console.log('1번째');
+//    const one =  innerOne(data);
+//       return one;
+//     } else {
+//       return false;
+//     }
+//   }
+
+//   // squence .2
+//   function innerOne(one) {
+//     console.log('2번째');
+//     return innerTwo(one) + 1;
+//   }
+//   // sequence .3
+//   function innerTwo(two) {
+//     console.log('3번째');
+
+//     return innerThree(two) + 2;
+//     // return two + 2;
+//   }
+//   // sequence.4
+//   function innerThree(three) {
+//     console.log('4번째');
+
+//     return innerFour(three) + 3;
+//     // return three + 3;
+//   }
+//   // sequence.5
+//   function innerFour(four) {
+//     console.log('5번째');
+
+//     return four + 4;
+//   }
+
+//   const test =integerCheck(numberValue);
+//   return test;
+//   // const first = innerOne(numberValue);
+//   // const second = innerTwo(first);
+//   // const third = innerThree(second);
+//   // const fourth = innerFour(third);
+//   // return fourth;
+// }
+// const result = exampleOne(10);
+// console.log(result);
+
+// * Q.2
+
 function exampleOne(numberValue) {
   function integerCheck(data) {
     if (Number.isInteger(data) === true) {
-      console.log('1번째');
-   const one =  innerOne(data);
-      return one;
+      return new Promise((resolve, reject) => {
+        resolve(data);
+      });
     } else {
-      return false;
+      return false; 
     }
   }
 
+  integerCheck(numberValue).then((data) => {
+    return innerOne(data);
+  })
+  .then((data) => {
+      return innerTwo(data);
+    })
+  .then((data) => {
+    return innerThree(data);
+  })
+  .then((data) => {
+    return innerFour(data);
+  })
+  .catch((error) => {
+    console.log('catch문에서 잘 못됨')
+  });
+
   // squence .2
   function innerOne(one) {
-    console.log('2번째');
-    return innerTwo(one) + 1;
+    return one + 1;
   }
   // sequence .3
   function innerTwo(two) {
-    console.log('3번째');
-
-    return innerThree(two) + 2;
-    // return two + 2;
+    return two + 2;
   }
   // sequence.4
   function innerThree(three) {
-    console.log('4번째');
-
-    return innerFour(three) + 3;
-    // return three + 3;
+    return three + 3;
   }
   // sequence.5
   function innerFour(four) {
-    console.log('5번째');
-
     return four + 4;
   }
 
-  const test =integerCheck(numberValue);
-  return test;
+  // integerCheck(numberValue);
   // const first = innerOne(numberValue);
   // const second = innerTwo(first);
   // const third = innerThree(second);
   // const fourth = innerFour(third);
   // return fourth;
+
 }
 const result = exampleOne(10);
 console.log(result);
