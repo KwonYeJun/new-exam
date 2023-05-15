@@ -235,6 +235,10 @@ function exampleOne(numberValue) {
 //   }
 // }
 // ! 이 부분이 잘 이해가 안 간다. 이렇게 작성을 했을 때는 값이 나오는지 아직 이해가 안 간다.
+
+// ! Promise에 대해 필용성을 못 느끼고 있습니다. 그래서 확 와닿는 느낌을 못 받고 있습니다. 
+
+// ! 제출은 하지만 계속 연구를 해볼려고 합니다.
 exampleOne(10)
   .then((result) => {
     console.log(result);
